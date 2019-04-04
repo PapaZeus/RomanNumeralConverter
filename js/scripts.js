@@ -4,9 +4,9 @@ $(document).ready(function(){
    
   $("form").submit(function(event){
     event.preventDefault();
-    console.log("form submitted");
     var userInput = parseInt($("#numberInput").val())
-    numeralConverter(userInput);
+    var numeralString = numeralConverter(userInput);
+    numeralOrderConverter(numeralString);
   });
 
   function numeralConverter(num1) {
@@ -15,7 +15,6 @@ $(document).ready(function(){
     var result = "";
 
     while (num1 > 0)  {
-      console.log("loop entered");
 
       if (num1 - 1000 >= 0) {
         num1 -= 1000;
@@ -49,8 +48,23 @@ $(document).ready(function(){
         console.error("numeralConverter: unhandled exception")
       }
     }
-
     console.log(result);
+    return result;
   }
 
+  function numeralOrderConverter(numerals) {
+
+    var result = "";
+    // var split = numerals.split();
+    // if(numerals.)
+    
+    result = numerals.replace('CCCC', 'CD')
+    // result = numerals.replace('XXXX', 'XL')
+    // result = numerals.replace('IIII', 'IV');
+
+
+
+    console.log("after numeralOrderConverter: "+result);
+
+  }
 });
